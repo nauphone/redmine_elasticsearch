@@ -20,8 +20,8 @@ module Workers
           self.perform_async(params)
         end
       rescue Exception => e
-        Rails.logger.debug "INDEXER: #{e.class} => #{e.message}"
-        raise
+        Rails.logger.error "INDEXER: #{e.class} => #{e.message}"
+        #raise
       end
 
       def perform_async(options)
